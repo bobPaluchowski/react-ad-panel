@@ -27,13 +27,16 @@ const AdPanel: React.FC = () => {
       </Link>
       <Grid2 container spacing={2}>
         {ads.map((ad) => (
-          <Grid2 item key={ad.id} sx={{ width: { xs: "100%", sm: "50%", md: "33.33%" } }}>
+          <Grid2 key={ad.id} component="div" sx={{ width: { xs: "100%", sm: "50%", md: "33.33%" } }}>
             <Card>
               <CardContent>
                 <Typography variant="h6">{ad.name}</Typography>
                 <Typography variant="body2">{ad.content}</Typography>
                 <Typography variant="caption">Start: {ad.startDate} - End: {ad.endDate}</Typography>
                 <Button onClick={() => removeAd(ad.id)} color="secondary">Remove</Button>
+                <Link to={`/advertisements/edit/${ad.id}`}>
+                <Button color="primary">Edit</Button>
+                </Link>
               </CardContent>
             </Card>
           </Grid2>
